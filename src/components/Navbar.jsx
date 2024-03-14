@@ -8,7 +8,7 @@ function NavbarApp() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary  justify-content-between" fixed="top">
     
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="#home" className='brand-color'>
           <img
             alt=""
             src={Logo}
