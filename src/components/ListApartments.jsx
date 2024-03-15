@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
+import { Link } from "react-router-dom";
 
 const ListApartments = () => {
 
@@ -24,8 +25,7 @@ const ListApartments = () => {
       
   return (
     <>
-    <Container className="">
-        <Row className="g-4">
+    
                 
         {loading ? (
           // Placeholder de tarjeta mientras se carga
@@ -49,15 +49,14 @@ const ListApartments = () => {
             ))}
           </>
         ) : (
-          // Renderización de tarjetas de apartamentos reales
           apartments.map((apartment) => (
-            <Col key={apartment.id} xs={12} md={4} lg={3}>
-              <CardApartment apartment={apartment}/>
+            <Col  key={apartment.id} xs={12} md={4} lg={3} xl={2} >
+              <Link className="custom-card-link" to={`/rooms/${apartment.id}`}>
+                <CardApartment apartment={apartment}/>
+              </Link>
             </Col>
           ))
         )}
-        </Row>
-    </Container>
       
     </>
   )
