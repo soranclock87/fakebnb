@@ -249,3 +249,7 @@ a.custom-nav-text.active-text.nav-link:hover {
   border: 0;
   border-radius: 40px;
 }
+
+.content-page{
+  margin-top: 7rem !important;
+}

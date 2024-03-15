@@ -26,9 +26,9 @@ const DetailPage = () => {
           return <p>Loading...</p>;
         }
   return (
-    <div className="mt-5 pt-5 pb-5">
+    <div className="content-page pt-5 pb-5">
       
-      conso
+      
         <h1>{apartment.name}</h1>
         <h1>{apartment.name}</h1>
         <h1>{apartment.name}</h1>
