@@ -5,6 +5,8 @@ const Dashboard = () => {
   return (
     <div className="pt-5 pb-5 content-page">
       <Container fluid className="x-5">
+
+        <h1>NUOVO</h1>
         <Row gap={4}> 
           <ListApartments />
         </Row>
