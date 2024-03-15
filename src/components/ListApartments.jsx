@@ -51,7 +51,7 @@ const ListApartments = () => {
         ) : (
           apartments.map((apartment) => (
             <Col  key={apartment.id} xs={12} md={4} lg={3} xl={2} >
-              <Link className="custom-card-link" to={`/rooms/${apartment.id}`}>
+              <Link className="custom-card-link" to={`/apartments/${apartment.id}`}>
                 <CardApartment apartment={apartment}/>
               </Link>
             </Col>
