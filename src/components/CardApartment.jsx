@@ -10,31 +10,25 @@ import Col from 'react-bootstrap/Col';
 
 const CardApartment = ({apartment}) => {
 
-  const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
   return (
     
-    <Card>
-      <Carousel   prevIcon={<BsChevronLeft />} // Utiliza el ícono de flecha izquierda
-      nextIcon={<BsChevronRight />}  interval={null} pause activeIndex={index} onSelect={handleSelect} indicators={true} className="custom-carousel">
-      <Carousel.Item>
-        
-        <Card.Img variant="top" src={apartment.imageUrls[0]} />
-       
-      </Carousel.Item>
-      <Carousel.Item>
-        <Card.Img variant="top" src={apartment.imageUrls[2]} />
-       
-      </Carousel.Item>
-      <Carousel.Item>
-      <Card.Img variant="top" src={apartment.imageUrls[3]} />
-       
-     
-      </Carousel.Item>
-    </Carousel>
+    <Card className='mb-3 w-100' >
+
+      
+    <Carousel
+        prevIcon={<BsChevronLeft />} 
+        nextIcon={<BsChevronRight />}  
+        interval={null} 
+        indicators={true} 
+        className="custom-carousel"
+      >
+        {apartment.imageUrls.map((imageUrl, idx) => (
+          <Carousel.Item key={idx}>
+            <Card.Img variant="top" src={imageUrl} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
     
     <Card.Body>
     <Row  className="align-items-center card-title-content">
@@ -48,13 +42,13 @@ const CardApartment = ({apartment}) => {
         </Col>
       </Row>
       <Card.Text className='text-card mt-1'>
-        Owner : {apartment.host['name']}
+        Host of apartment : {apartment.host['name']}
       </Card.Text>
       <Card.Text className='text-card'>
-        Guests : {apartment.maxGuests}
+        Max. Guests : {apartment.maxGuests}
       </Card.Text>
       <Card.Text  className='text-card-special mt-2'>
-        <div className='text-price'>€ {apartment.price}</div> night
+        <span className='text-price'>€ {apartment.price}</span> night
       </Card.Text>
     </Card.Body>
   </Card>
