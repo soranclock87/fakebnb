@@ -1,32 +1,15 @@
 import { useEffect, useState } from "react"
 // import axios from "axios";
 import CardApartment from "./CardApartment";
-import Container from "react-bootstrap/Container";
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import { Link } from "react-router-dom";
 
-const ListApartments = () => {
-
-    const [apartments, setApartments] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const getOneProduct = async () => {
-          const res = await fetch(`http://localhost:3000/apartments`);
-          const parsed = await res.json();
-          setApartments(parsed);
-          setLoading(false);
-        };
-        getOneProduct();
-      }, []);
-      
-  return (
-    <>
+const ListApartments = ({apartments,loading}) => {
     
-                
+  return (
+    <>          
         {loading ? (
           // Placeholder de tarjeta mientras se carga
           <>

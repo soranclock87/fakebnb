@@ -1,14 +1,14 @@
 import ListApartments from "../components/ListApartments"
 import { Container, Row } from "react-bootstrap"
 
-const Dashboard = () => {
+const Dashboard = ({apartments,loading}) => {
+
   return (
     <div className="pt-5 pb-5 content-page">
       <Container fluid className="x-5">
 
-        <h1>cucca</h1>
         <Row gap={4}> 
-          <ListApartments />
+          <ListApartments apartments={apartments} loading={loading}/>
         </Row>
       </Container>
     </div>
