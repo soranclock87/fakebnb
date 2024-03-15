@@ -22,25 +22,20 @@ const DetailPage = () => {
 
   return (
     <div className="mt-5 pt-5 pb-5">
-      {apartment.name}
-      {apartment.name}{apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      {apartment.name}
-      <img src={apartment.imageUrls[0]} alt="" />
-      
+     
+      <h1>
 
+    {apartment.name}
+      </h1>
+
+      <h1>
+
+    {apartment.name}
+      </h1>
+      <h1>
+
+    {apartment.name}
+      </h1>
 
 
     </div>
