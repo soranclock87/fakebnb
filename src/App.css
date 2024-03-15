@@ -197,7 +197,7 @@ a.custom-nav-text.active-text.nav-link:hover {
   top: 0;
   background-color: white;
   width: 100%;
-  z-index: 2;
+  z-index: 5;
 }
 
 .navbar-expand-lg .navbar-nav {
@@ -252,4 +252,21 @@ a.custom-nav-text.active-text.nav-link:hover {
 
 .content-page{
   margin-top: 7rem !important;
+}
+
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: transparent !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.sticky {
+  position: sticky;
+  top: 100px;
+  width: 200px;
+  background: red;
+  padding-top: 100px;
+  height: 200px;
 }
