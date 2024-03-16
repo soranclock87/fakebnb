@@ -1,15 +1,15 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Logo from '../assets/airbnb.png'
 import { useEffect,useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
+import { IoMdSearch } from "react-icons/io";
+import User from "../assets/user.jpg"
+import Menu from "../assets/menu.png"
+
 
 function NavbarApp() {
   const location = useLocation(); 
@@ -33,7 +33,7 @@ function NavbarApp() {
 
   return (
     <div className='navbar-content'>
-    <Navbar expand="lg" className="px-5 justify-content-between" fixed="top">
+    <Navbar expand="lg" className="px-5 pt-3 justify-content-between" fixed="top">
     
       <Navbar.Brand href="#home" className='brand-color'>
           <img
@@ -50,45 +50,67 @@ function NavbarApp() {
         <Nav.Link href="/new" className={"custom-nav-text " + (url === "/new" ?" active-text" : "")}>New Apartment</Nav.Link>
         <Nav.Link href="/experiences" className={"custom-nav-text " + (url === "/experiences" ?" active-text" : "")}>Online Experiences</Nav.Link>
       </Nav>
-        <NavDropdown title="" className='mx-5'>
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+      <Nav>
+
+        
+
+       <Dropdown>
+      <Dropdown.Toggle  id="dropdown-basic">
+        <img className="ms-1 menu-icon" src={Menu} alt="" />
+      <img  className="rounded-image" src={User} alt="" />
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown> 
+      </Nav>
+        
        
         
     </Navbar>
-     <Nav  className="px-5  justify-content-center text-center mt-3 pt-5">
+     <Nav  className="px-5  justify-content-center text-center pt-55">
      <Form noValidate className='mb-3 form-filters' validated={validated} onSubmit={handleSubmit}>
       <>
-        <Form.Group  className="mx-3" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
+        <Form.Group  className="ps-4 input-nofilter" controlId="validationCustom01">
+          <Form.Label>Where</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="First name"
-            defaultValue="Mark"
+            placeholder="Search destinations"
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group  className="mx-3" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
+        <Form.Group  className="input-nofilter" controlId="validationCustom02">
+          <Form.Label>Check in</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Last name"
-            defaultValue="Otto"
+            placeholder="Add dates"
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group  controlId="validationCustomUsername">
-        <Button type="submit">B</Button>
+        <Form.Group  className="input-nofilter" controlId="validationCustom02">
+          <Form.Label>Check out</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Add dates"
+          />
+         
+        </Form.Group>
+        <Form.Group  className=" input-nofilter special-filter" controlId="validationCustom02">
+          <div>
+          <Form.Label>Who</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Add guess"
+          />
+          </div>
+          
+          <Button type="submit"><IoMdSearch /></Button>
+         
         </Form.Group>
       </>
       

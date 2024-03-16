@@ -1,5 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const NewPage = ({apartments,setApartments}) => {
   const [id, setId] = useState("");
@@ -33,7 +34,7 @@ const NewPage = ({apartments,setApartments}) => {
       "description": "Piero",
       "price": 150,
       "maxGuests": 4,
-      "location": "Italy",
+      "location": "Peniche",
       "imageUrls": [
         "https://source.unsplash.com/300x300/?apartment&id=20&image=1",
         "https://source.unsplash.com/300x300/?apartment&id=20&image=2",
@@ -60,10 +61,7 @@ const NewPage = ({apartments,setApartments}) => {
         },
         body: JSON.stringify(newApartment),
       });
-      //convert the res variable to json so we can use it
-      //.json()  IS A PROMISE!!!!! MAKE SURE TO AWAIT
       const parsed = await res.json();
-      console.log("apartment was successfully added", parsed);
       setApartments([parsed, ...apartments]);
       nav("/");
     } catch (err) {
