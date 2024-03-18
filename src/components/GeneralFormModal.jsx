@@ -1,51 +1,51 @@
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import React, { useState } from 'react';
 
-function GeneralFormModal(props) {
+function GeneralFormModal({
+  show, apartment, isEdit, onSubmit, onHide, onClose,
+}) {
   const defaultApartment = {
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     price: 0,
     maxGuests: 0,
-    location: "",
+    location: '',
     imageUrls: [],
 
     rating: 0,
     reviews: 0,
     host: {
-      name: "",
-      imageUrl: "",
+      name: '',
+      imageUrl: '',
     },
     favorite: false,
   };
 
-  console.log(props);
-  
-  const [form, setForm] = useState(props.apartment ?? defaultApartment);
+  const [form, setForm] = useState(apartment ?? defaultApartment);
   const [imageStrings, setImageStrings] = useState(
-    props.apartment?.imageUrls.join(",") ?? ""
+    apartment?.imageUrls.join(',') ?? '',
   );
+
+  function resetStates() {
+    setForm(defaultApartment);
+    setImageStrings('');
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const imageUrls = imageStrings.split(",").map((url) => url.trim());
+    const imageUrls = imageStrings.split(',').map((url) => url.trim());
     console.log(imageStrings, imageUrls);
     const updateForm = { ...form, imageUrls };
 
-    props.onSubmit(updateForm);
+    onSubmit(updateForm);
 
-    if (!props.isEdit) {
+    if (!isEdit) {
       resetStates();
     }
-    props.onHide()
+    onHide();
   };
-
-  function resetStates() {
-    setForm(defaultApartment);
-    setImageStrings("");
-  }
 
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -64,14 +64,14 @@ function GeneralFormModal(props) {
 
   return (
     <Modal
-      {...props}
+      show={show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-    
+
       <Modal.Body>
-      {props.isEdit ? "Edit the Apartment" : "Create a new Apartment"}
+        {isEdit ? 'Edit the Apartment' : 'Create a new Apartment'}
         <form className="mt-5 pt-5" onSubmit={handleSubmit}>
           <label>
             Name of apartment
@@ -83,7 +83,7 @@ function GeneralFormModal(props) {
               placeholder="Apartment Name"
             />
           </label>
-          <label >
+          <label>
             Description
           </label>
           <input
@@ -129,7 +129,7 @@ function GeneralFormModal(props) {
             onChange={handleImages}
             placeholder="Image"
           />
-          
+
           <input
             type="text"
             name="reviews"
@@ -162,7 +162,10 @@ function GeneralFormModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleSubmit}>
-          {props.isEdit ? "Update" : "Create"}
+          {isEdit ? 'Update' : 'Create'}
+        </Button>
+        <Button onClick={onClose}>
+          {isEdit ? 'Update' : 'Create'}
         </Button>
       </Modal.Footer>
     </Modal>
