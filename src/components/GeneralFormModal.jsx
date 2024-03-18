@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-=======
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
->>>>>>> 26f0b0a3fdef5c63f6a7336db8412cfeb7eff02d
 
 function GeneralFormModal(props) {
   const defaultApartment = {
@@ -76,8 +71,6 @@ function GeneralFormModal(props) {
     >
     
       <Modal.Body>
-<<<<<<< HEAD
-=======
       {props.isEdit ? "Edit the Apartment" : "Create a new Apartment"}
         <form className="mt-5 pt-5" onSubmit={handleSubmit}>
           <label>
@@ -136,7 +129,6 @@ function GeneralFormModal(props) {
             onChange={handleImages}
             placeholder="Image"
           />
->>>>>>> 26f0b0a3fdef5c63f6a7336db8412cfeb7eff02d
           
           <input
             type="text"
