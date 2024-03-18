@@ -9,7 +9,7 @@ import Form from "react-bootstrap/Form";
 import GeneralFormModal from "../components/GeneralFormModal";
 import Modal from "react-bootstrap/Modal";
 
-const DetailPage = ({ apartments, setApartments,onSubmit }) => {
+const DetailPage = ({ apartments, setApartments, onSubmit }) => {
   const [apartment, setApartment] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);

@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 
-function GeneralFormModal(props,{onSubmit}) {
+function GeneralFormModal(props) {
   const defaultApartment = {
     name: "",
     description: "",
@@ -21,6 +21,7 @@ function GeneralFormModal(props,{onSubmit}) {
   };
 
   console.log(props);
+  
   const [form, setForm] = useState(props.apartment ?? defaultApartment);
   const [imageStrings, setImageStrings] = useState(
     props.apartment?.imageUrls.join(",") ?? ""

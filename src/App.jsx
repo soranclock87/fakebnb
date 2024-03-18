@@ -14,7 +14,7 @@ function App() {
 
 
 
-  const edtiApartment = async (apartment) => {
+  const editApartment = async (apartment) => {
    const updateApartment = {id: apartment.id , ...apartment };
     
     try {
@@ -66,11 +66,11 @@ function App() {
 
   return (
     <>
-      <Navbar onSumbit={createNewApartment}/>
+      <Navbar onSubmit={createNewApartment}/>
       <Routes>
         <Route path='/' element={<Dashboard apartments={apartments} loading={loading}/>}/>
-        <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments} onSumbit={edtiApartment}/>}/>
-        {/* <Route path='/new' element={<NewPage apartments={apartments} setApartments={setApartments} />}/> */}
+        <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment}/>}/>
+        {/* <Route path='/new' element={<NewPage apartments={apartmentsgit} setApartments={setApartments} />}/> */}
       </Routes>
       <Footer/>
     </>
