@@ -9,11 +9,16 @@ import Form from 'react-bootstrap/Form';
 import { IoMdSearch } from "react-icons/io";
 import User from "../assets/user.jpg"
 import Menu from "../assets/menu.png"
+import GeneralFormModal from "../components/GeneralFormModal";
 
-
-function NavbarApp() {
+function NavbarApp({createNew}) {
   const location = useLocation(); 
   const [url, setUrl] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
+
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
@@ -47,12 +52,21 @@ function NavbarApp() {
         </Navbar.Brand>
         <Nav>
         <Nav.Link href="/" className={"custom-nav-text " + (url === "/" ?" active-text" : "")}>Stays</Nav.Link>
-        <Nav.Link href="/new" className={"custom-nav-text " + (url === "/new" ?" active-text" : "")}>New Apartment</Nav.Link>
+        <Button
+            className="no-button-style custom-nav-text"
+            onClick={() => setModalShow(true)}
+          >
+            Edit
+          </Button>
         <Nav.Link href="/experiences" className={"custom-nav-text " + (url === "/experiences" ?" active-text" : "")}>Online Experiences</Nav.Link>
       </Nav>
       <Nav>
 
-        
+        <GeneralFormModal
+            show={modalShow}
+            createNew={createNew}
+            onHide={() => setModalShow(false)}
+          />
 
        <Dropdown>
       <Dropdown.Toggle  id="dropdown-basic">

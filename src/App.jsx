@@ -2,7 +2,7 @@
 import './App.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route,useNavigate } from "react-router-dom"
 import DetailPage from './pages/DetailPage'
 import NewPage from './pages/NewPage'
 import Dashboard from './pages/Dashboard'
@@ -11,7 +11,7 @@ import { useEffect, useState} from 'react'
 function App() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const nav = useNavigate();
 
 
   const handleCreateNewApartment = async (event) => {
@@ -73,7 +73,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar createNew={handleCreateNewApartment}/>
       <Routes>
         <Route path='/' element={<Dashboard apartments={apartments} loading={loading}/>}/>
         <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments}/>}/>

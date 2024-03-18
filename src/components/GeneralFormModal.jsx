@@ -13,16 +13,17 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading{props.apartment.name}
+          Modal heading
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h4>Centered Modal</h4>
         <p>
-          {props.apartment.description}
+          
         </p>
       </Modal.Body>
       <Modal.Footer>
+      <Button onClick={props.createNew}>Crear</Button>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>

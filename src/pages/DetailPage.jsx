@@ -319,7 +319,7 @@ const DetailPage = ({ apartments, setApartments }) => {
         show={show}
         onHide={handleClose}
         size="lg"
-        // aria-labelledby="contained-modal-title-vcenter"
+        aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
