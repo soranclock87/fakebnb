@@ -13,6 +13,8 @@ const DetailPage = ({ apartments, setApartments }) => {
   const [apartment, setApartment] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
+  const [nights, setNights] = useState(1);
+  const [guests, setGuests] = useState(1);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -31,9 +33,23 @@ const DetailPage = ({ apartments, setApartments }) => {
     getSingleApartment();
   }, [id]);
 
+const handleDelete = async (id) => {
+console.log("delete the apartment with id:", id)
+}
+const handleNightsSelect = (e) => {
+  setNights(parseInt(e.target.value));
+}
+const handleGuestsSelect = (e) => {
+  setNights(parseInt(e.target.value))
+}
+
   if (!apartment) {
     return <p>Loading...</p>;
   }
+
+const totalPrice = apartment.price * nights;
+
+
   return (
     <div className="content-page detail-page pt-5 pb-5 px-5">
       <h3 className="pt-2 pb-1">{apartment.name}</h3>
@@ -186,19 +202,23 @@ const DetailPage = ({ apartments, setApartments }) => {
             <h2 className="title-price pb-2">
               € {apartment.price} <span className="">night</span>
             </h2>
-            <Form.Select aria-label=" " className="first-select">
+            <Form.Select aria-label=" " className="first-select" onChange={handleNightsSelect}>
               <option>Nights </option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
             </Form.Select>
-            <Form.Select className=" second-select mb-3">
+
+            <Form.Select className=" second-select mb-3" onChange={handleGuestsSelect}>
               <option>Guests</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
             </Form.Select>
-            <Button className="no-reserve-btn mb-3">No Reserve</Button>
+
+            <Button className="no-reserve-btn mb-3">
+              Total Price: € {totalPrice}
+            </Button>
 
             <p className="normal-text justify-content-center mb-3 d-flex">
               {" "}
