@@ -29,20 +29,26 @@ const NewPage = ({apartments,setApartments}) => {
     event.preventDefault();
     //Replace the data from the data recieve of inputs
     const newApartment = {
-     id: id,
-     name: name,
-     description: description,
-     price: price,
-     maxGuests: maxGuests,
-     location: location,
-     imageUrls: [imageUrls],
-     rating: rating,
-     reviews: reviews,
-     host: {
-       name: hostName,
-        imageUrl: hostImageUrl
+      "id": "018291832",
+      "name": "Piero",
+      "description": "Piero",
+      "price": 150,
+      "maxGuests": 4,
+      "location": "Peniche",
+      "imageUrls": [
+        "https://source.unsplash.com/300x300/?apartment&id=20&image=1",
+        "https://source.unsplash.com/300x300/?apartment&id=20&image=2",
+        "https://source.unsplash.com/300x300/?apartment&id=20&image=3",
+        "https://source.unsplash.com/300x300/?apartment&id=20&image=4",
+        "https://source.unsplash.com/300x300/?apartment&id=20&image=5"
+      ],
+      "rating": 4.6,
+      "reviews": 100,
+      "host": {
+        "name": "Lars",
+        "imageUrl": "https://source.unsplash.com/300x300/?user"
       },
-      favorite: favorite === 'true'
+      "favorite": false
     }
     //================================================
    
@@ -55,10 +61,7 @@ const NewPage = ({apartments,setApartments}) => {
         },
         body: JSON.stringify(newApartment),
       });
-      //convert the res variable to json so we can use it
-      //.json()  IS A PROMISE!!!!! MAKE SURE TO AWAIT
       const parsed = await res.json();
-      console.log("apartment was successfully added", parsed);
       setApartments([parsed, ...apartments]);
       nav("/");
     } catch (err) {

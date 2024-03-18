@@ -7,13 +7,39 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { FaStar } from 'react-icons/fa';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Placeholder from 'react-bootstrap/Placeholder';
 
-const CardApartment = ({apartment}) => {
 
+const CardApartment = ({apartment, loading}) => {
 
+  const [ready,setReady] = useState(false)
+
+  setTimeout(function() {
+    if(loading == false)
+    setReady(true);
+  }, 1500);
+
+if(!ready){
+  return (
+    <Card style={{ width: '18rem' }}>
+        <Placeholder  as={Card.Image} animation="glow">
+            <Placeholder className="placeholder-image" xs={6} />
+          </Placeholder>
+        <Card.Body>
+          <Placeholder as={Card.Title} animation="glow">
+            <Placeholder xs={6} />
+          </Placeholder>
+          <Placeholder as={Card.Text} animation="glow">
+            <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+            <Placeholder xs={6} /> <Placeholder xs={8} />
+          </Placeholder>
+        </Card.Body>
+      </Card>
+  )
+}else {
   return (
     
-    <Card className='mb-3 w-100' >
+    <Card className='w-100' >
 
       
     <Carousel
@@ -53,6 +79,8 @@ const CardApartment = ({apartment}) => {
     </Card.Body>
   </Card>
   )
+}
+ 
 }
 
 export default CardApartment
