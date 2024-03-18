@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
-import Medal from "../assets/medal.png";
-import Location from "../assets/location.png";
-import Calendar from "../assets/event.png";
-import { Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import GeneralFormModal from "../components/GeneralFormModal";
-import Modal from "react-bootstrap/Modal";
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import Medal from '../assets/medal.png';
+import Location from '../assets/location.png';
+import Calendar from '../assets/event.png';
+import GeneralFormModal from '../components/GeneralFormModal';
+import NoReserveBlock from '../components/NoReserveBlock';
 
-const DetailPage = ({ apartments, setApartments, onSubmit }) => {
+function DetailPage({ apartments, setApartments, onSubmit }) {
   const [apartment, setApartment] = useState();
+
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
-  const [nights, setNights] = useState(1);
-  const [guests, setGuests] = useState(1);
-
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  const handleModalShow = () => setModalShow(true);
+  const handleModalClose = () => setModalShow(false);
+
   const { id } = useParams();
   const nav = useNavigate();
-
-  
 
   const getSingleApartment = async () => {
     const res = await fetch(`http://localhost:3000/apartments/${id}`);
@@ -33,34 +32,42 @@ const DetailPage = ({ apartments, setApartments, onSubmit }) => {
     getSingleApartment();
   }, [id]);
 
-const handleDelete = async (id) => {
-console.log("delete the apartment with id:", id)
-}
-const handleNightsSelect = (e) => {
-  setNights(parseInt(e.target.value));
-}
-const handleGuestsSelect = (e) => {
-  setNights(parseInt(e.target.value))
-}
+  const handleDelete = async (apartmentId) => {
+    try {
+      await fetch(
+        `http://localhost:3000/apartments/${apartmentId}`,
+        {
+          method: 'DELETE',
+        },
+      );
+      const newApartments = apartments.filter((current) => current.id !== apartmentId);
+      setApartments(newApartments);
+      nav('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   if (!apartment) {
     return <p>Loading...</p>;
   }
 
-const totalPrice = apartment.price * nights;
-
-
   return (
     <div className="content-page detail-page pt-5 pb-5 px-5">
       <h3 className="pt-2 pb-1">{apartment.name}</h3>
-
       <div className="reviews-part pb-3">
         <div>
           <p className="pe-2">
-            <FaStar /> {apartment.rating}
+            <FaStar />
+            {' '}
+            {apartment.rating}
           </p>
           <span>.</span>
-          <p className="mx-2">{apartment.reviews} reeviews</p>
+          <p className="mx-2">
+            {apartment.reviews}
+            {' '}
+            reeviews
+          </p>
           <span>.</span>
           <p className="mx-2">{apartment.location}</p>
         </div>
@@ -68,7 +75,7 @@ const totalPrice = apartment.price * nights;
         <div>
           <Button
             className="no-button-style"
-            onClick={() => setModalShow(true)}
+            onClick={handleModalShow}
           >
             Edit
           </Button>
@@ -77,10 +84,11 @@ const totalPrice = apartment.price * nights;
             show={modalShow}
             apartment={apartment}
             onSubmit={onSubmit}
-            isEdit={true}
+            onClose={handleModalClose}
+            isEdit
             onHide={() => setModalShow(false)}
           />
-          <Button className="no-button-style" onClick={handleShow}>
+          <Button className="no-button-style" onClick={() => handleShow(apartment.id)}>
             Delete
           </Button>
         </div>
@@ -130,10 +138,18 @@ const totalPrice = apartment.price * nights;
 
       <div className=" row d-flex pt-5 m-0 mt-3">
         <div className=" col-sm-12 col-md-8 col-lg-8">
-          <h2>Premium Stay in {apartment.location}</h2>
+          <h2>
+            Premium Stay in
+            {apartment.location}
+          </h2>
           <div className="reviews-part mt-3 pb-2">
             <div>
-              <p className="pe-2"> {apartment.maxGuests} guests</p>
+              <p className="pe-2">
+                {' '}
+                {apartment.maxGuests}
+                {' '}
+                guests
+              </p>
               <span>.</span>
               <p className="mx-2">3 bedrooms</p>
               <span>.</span>
@@ -145,10 +161,16 @@ const totalPrice = apartment.price * nights;
           <div className="reviews-part bold-text pb-2">
             <div>
               <p className="pe-2">
-                <FaStar /> {apartment.rating}
+                <FaStar />
+                {' '}
+                {apartment.rating}
               </p>
               <span>.</span>
-              <p className="mx-2 link">{apartment.reviews} reeviews</p>
+              <p className="mx-2 link">
+                {apartment.reviews}
+                {' '}
+                reeviews
+              </p>
             </div>
           </div>
 
@@ -156,7 +178,10 @@ const totalPrice = apartment.price * nights;
           <div className="host-part pt-2 pb-2">
             <img src={apartment.host.imageUrl} alt="" />
             <div className="ms-3">
-              <h6 className="name-host">Hosted by {apartment.host.name}</h6>
+              <h6 className="name-host">
+                Hosted by
+                {apartment.host.name}
+              </h6>
               <div className="reviews-part ">
                 <div>
                   <p className="">Superhost</p>
@@ -184,68 +209,30 @@ const totalPrice = apartment.price * nights;
           <div className="block-logo-text mb-5">
             <img src={Medal} alt="" className="me-3" />
             <div>
-              <p className="black-info">{apartment.host.name} is a Superhost</p>
+              <p className="black-info">
+                {apartment.host.name}
+                {' '}
+                is a Superhost
+              </p>
               <p>Superhosts are experienced, highly rated Hosts.</p>
             </div>
           </div>
           <hr className="me-5" />
 
           <div className="mt-5 block-message me-5 mb-5">
-            Some info has been automatically translated.{" "}
+            Some info has been automatically translated.
+            {' '}
             <p className="link bold-text">Show original</p>
           </div>
           <p className="normal-text mb-4">{apartment.description}</p>
 
-          <Button className=" no-button-style  mb-5">Show more {">"} </Button>
+          <Button className=" no-button-style  mb-5">
+            Show more
+            {'>'}
+          </Button>
           <hr className="me-5" />
         </div>
-        <div className=" col-sm-12 col-md-4 col-lg-4 sticky">
-          <div className="card-total">
-            <h2 className="title-price pb-2">
-              € {apartment.price} <span className="">night</span>
-            </h2>
-            <Form.Select aria-label=" " className="first-select" onChange={handleNightsSelect}>
-              <option>Nights </option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </Form.Select>
-
-            <Form.Select className=" second-select mb-3" onChange={handleGuestsSelect}>
-              <option>Guests</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </Form.Select>
-
-            <Button className="no-reserve-btn mb-3">
-              Total Price: € {totalPrice}
-            </Button>
-
-            <p className="normal-text justify-content-center mb-3 d-flex">
-              {" "}
-              You won´t be charged yet
-            </p>
-
-            <div className="price-night mb-3 d-flex normal-text justify-content-between">
-              <p className="link">€ 1000 x 5 night</p>
-              <p>€ 800</p>
-            </div>
-            <div className="price-fee mb-3 d-flex normal-text justify-content-between">
-              <p className="link">fakebnb service fee</p>
-              <p>€ 800</p>
-            </div>
-            <div className="price-taxes mb-3 d-flex normal-text justify-content-between">
-              <p className="link">Taxes</p>
-              <p>€ 26</p>
-            </div>
-            <hr />
-            <div className="price-taxes d-flex bold-text justify-content-between">
-              <p>Total</p>
-              <p>€ 26</p>
-            </div>
-          </div>
-        </div>
+        <NoReserveBlock apartment={apartment} />
       </div>
 
       <div className="mt-5">
@@ -278,7 +265,7 @@ const totalPrice = apartment.price * nights;
             like our Privacy Policy, which describes our collection and use of
             personal data, and our Payments Terms, which govern any payment
             services provided to Members by the Airbnb payment entities
-            (collectively "Airbnb Payments").
+            (collectively Airbnb Payments).
           </p>
           <p className="normal-text mt-5">
             Privacy Policy At Airbnb, we prioritize the privacy and security of
@@ -359,6 +346,6 @@ const totalPrice = apartment.price * nights;
       </Modal>
     </div>
   );
-};
+}
 
 export default DetailPage;

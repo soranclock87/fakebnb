@@ -159,17 +159,7 @@ a.carousel-control-prev svg {
   margin-right: 5px;
 }
 
-a.custom-nav-text.active-text.nav-link {
- color: #222222 !important;
-  font-weight: 400 !important;
-  font-size: 16px !important;
-}
 
-.custom-nav-text{
-  font-family: 'Airbnb Cereal App', sans-serif;
-  font-size: 15px !important;
-  font-weight: 300 !important;
-}
 
 .logo{
   font-weight: 600;
@@ -544,3 +534,20 @@ button.no-reserve-btn:hover {
   font-weight: 100;
   font-size: 19px;
 }
+
+a.custom-nav-text.active-text.nav-link {
+  color: #222222 !important;
+   font-weight: 400 !important;
+   font-size: 16px !important;
+   
+ }
+ 
+ .custom-nav-text{
+   font-family: 'Airbnb Cereal App', sans-serif;
+   font-size: 15px !important;
+   font-weight: 300 !important;
+   text-decoration: none !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: gray !important;
+ }

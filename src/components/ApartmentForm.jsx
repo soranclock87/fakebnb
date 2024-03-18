@@ -1,14 +1,9 @@
+function ApartmentForm({ apartment, onSubmit }) {
+  const [data, setData] = useState();
 
-
-const ApartmentForm = ({apartment,onSubmit}) => {
-
-    const [data,setData] = useState();
-    
   return (
-    <div>
-        
-    </div>
-  )
+    <div />
+  );
 }
 
-export default ApartmentForm
+export default ApartmentForm;
