@@ -9,7 +9,7 @@ import Form from "react-bootstrap/Form";
 import GeneralFormModal from "../components/GeneralFormModal";
 import Modal from "react-bootstrap/Modal";
 
-const DetailPage = ({ apartments, setApartments }) => {
+const DetailPage = ({ apartments, setApartments,onSubmit }) => {
   const [apartment, setApartment] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
@@ -76,6 +76,8 @@ const totalPrice = apartment.price * nights;
           <GeneralFormModal
             show={modalShow}
             apartment={apartment}
+            onSubmit={onSubmit}
+            isEdit={true}
             onHide={() => setModalShow(false)}
           />
           <Button className="no-button-style" onClick={handleShow}>

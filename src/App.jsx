@@ -13,41 +13,35 @@ function App() {
   const nav = useNavigate();
 
 
-  const handleCreateNewApartment = async (event) => {
-    event.preventDefault();
-    //Replace the data from the data recieve of inputs
-    const newApartment = {
-      "id": "018291832",
-      "name": "Piero",
-      "description": "Piero",
-      "price": 150,
-      "maxGuests": 4,
-      "location": "Peniche",
-      "imageUrls": [
-        "https://source.unsplash.com/300x300/?apartment&id=20&image=1",
-        "https://source.unsplash.com/300x300/?apartment&id=20&image=2",
-        "https://source.unsplash.com/300x300/?apartment&id=20&image=3",
-        "https://source.unsplash.com/300x300/?apartment&id=20&image=4",
-        "https://source.unsplash.com/300x300/?apartment&id=20&image=5"
-      ],
-      "rating": 4.6,
-      "reviews": 100,
-      "host": {
-        "name": "Lars",
-        "imageUrl": "https://source.unsplash.com/300x300/?user"
-      },
-      "favorite": false
-    }
-    //================================================
-   
+
+  const edtiApartment = async (apartment) => {
+   const updateApartment = {id: apartment.id , ...apartment };
+    
     try {
       //new variable for what the POST fetch returns
+      const res = await fetch(`http://localhost:3000/apartments/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updateApartment),
+      });
+      const parsed = await res.json();
+      nav("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const createNewApartment = async (apartment) => {
+   
+    try {
       const res = await fetch("http://localhost:3000/apartments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newApartment),
+        body: JSON.stringify(apartment),
       });
       const parsed = await res.json();
       setApartments([parsed, ...apartments]);
@@ -72,11 +66,12 @@ function App() {
 
   return (
     <>
-      <Navbar createNew={handleCreateNewApartment}/>
+      <Navbar onSumbit={createNewApartment}/>
       <Routes>
         <Route path='/' element={<Dashboard apartments={apartments} loading={loading}/>}/>
-        <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments}/>}/>
-           </Routes>
+        <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments} onSumbit={edtiApartment}/>}/>
+        {/* <Route path='/new' element={<NewPage apartments={apartments} setApartments={setApartments} />}/> */}
+      </Routes>
       <Footer/>
     </>
   )

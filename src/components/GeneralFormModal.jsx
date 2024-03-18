@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 
-function GeneralFormModal(props) {
+function GeneralFormModal(props,{onSubmit}) {
   const defaultApartment = {
     name: "",
     description: "",
@@ -20,6 +20,7 @@ function GeneralFormModal(props) {
     favorite: false,
   };
 
+  console.log(props);
   const [form, setForm] = useState(props.apartment ?? defaultApartment);
   const [imageStrings, setImageStrings] = useState(
     props.apartment?.imageUrls.join(",") ?? ""
@@ -34,7 +35,7 @@ function GeneralFormModal(props) {
 
     props.onSubmit(updateForm);
 
-    if (!props.isEditing) {
+    if (!props.isEdit) {
       resetStates();
     }
     props.onHide()
@@ -69,7 +70,7 @@ function GeneralFormModal(props) {
     >
     
       <Modal.Body>
-      {props.isEditing ? "Edit the Apartment" : "Create a new Apartment"}
+      {props.isEdit ? "Edit the Apartment" : "Create a new Apartment"}
         <form className="mt-5 pt-5" onSubmit={handleSubmit}>
           <label>
             Name of apartment
@@ -160,7 +161,7 @@ function GeneralFormModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleSubmit}>
-          {props.isEditing ? "Update" : "Create"}
+          {props.isEdit ? "Update" : "Create"}
         </Button>
       </Modal.Footer>
     </Modal>
