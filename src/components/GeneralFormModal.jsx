@@ -11,34 +11,40 @@ function GeneralFormModal({
     price: 0,
     maxGuests: 0,
     location: '',
-    imageUrls: [],
+    imageUrls: [
+      'https://source.unsplash.com/300x300/?apartment&id=21&image=1',
+      'https://source.unsplash.com/300x300/?apartment&id=21&image=2',
+      'https://source.unsplash.com/300x300/?apartment&id=21&image=3',
+      'https://source.unsplash.com/300x300/?apartment&id=21&image=4',
+      'https://source.unsplash.com/300x300/?apartment&id=21&image=5',
+    ],
 
     rating: 0,
     reviews: 0,
     host: {
       name: '',
-      imageUrl: '',
+      imageUrl: 'https://source.unsplash.com/300x300/?user',
     },
     favorite: false,
   };
 
   const [form, setForm] = useState(apartment ?? defaultApartment);
-  const [imageStrings, setImageStrings] = useState(
-    apartment?.imageUrls.join(',') ?? '',
-  );
+  // const [imageStrings, setImageStrings] = useState(
+  //   apartment?.imageUrls.join(',') ?? '',
+  // );
 
   function resetStates() {
     setForm(defaultApartment);
-    setImageStrings('');
+    // setImageStrings('');
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const imageUrls = imageStrings.split(',').map((url) => url.trim());
-    console.log(imageStrings, imageUrls);
-    const updateForm = { ...form, imageUrls };
-
+    // const imageUrls = imageStrings.split(',').map((url) => url.trim());
+    // console.log(imageStrings, imageUrls);
+    // const updateForm = { ...form, imageUrls };
+    const updateForm = { ...form };
     onSubmit(updateForm);
 
     if (!isEdit) {
@@ -58,9 +64,9 @@ function GeneralFormModal({
     });
   }
 
-  function handleImages(event) {
-    setImageStrings(event.target.value);
-  }
+  // function handleImages(event) {
+  //   setImageStrings(event.target.value);
+  // }
 
   return (
     <Modal
@@ -72,25 +78,26 @@ function GeneralFormModal({
 
       <Modal.Body>
         {isEdit ? 'Edit the Apartment' : 'Create a new Apartment'}
-        <form className="mt-5 pt-5" onSubmit={handleSubmit}>
+        <form className="mt-3 general-form" onSubmit={handleSubmit}>
           <label>
             Name of apartment
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Apartment Name"
-            />
-          </label>
-          <label>
-            Description
           </label>
           <input
             type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Apartment Name"
+          />
+          <label>
+            Description
+          </label>
+          <textarea
             name="description"
             value={form.description}
             onChange={handleChange}
+            cols={4}
+            rows={4}
             placeholder="Description"
           />
           <label>
@@ -121,22 +128,15 @@ function GeneralFormModal({
             onChange={handleChange}
             placeholder="Location"
           />
-          <label>Images</label>
+          {/* <label>Images</label>
           <input
             type="text"
             name="imageUrls"
             value={imageStrings}
             onChange={handleImages}
             placeholder="Image"
-          />
-
-          <input
-            type="text"
-            name="reviews"
-            value={form.reviews}
-            onChange={handleChange}
-            placeholder="Reviews"
-          />
+          /> */}
+          <label> Host name</label>
           <input
             type="text"
             name="name"
@@ -144,20 +144,20 @@ function GeneralFormModal({
             onChange={handleHost}
             placeholder="Host Name"
           />
-          <input
+          {/* <input
             type="text"
             name="imageUrl"
             value={form.host.imageUrl}
             onChange={handleHost}
             placeholder="Host Image"
-          />
-          <input
+          /> */}
+          {/* <input
             type="text"
             name="favorite"
             value={form.favorite}
             onChange={handleChange}
             placeholder="Favorite"
-          />
+          /> */}
         </form>
       </Modal.Body>
       <Modal.Footer>
@@ -165,7 +165,7 @@ function GeneralFormModal({
           {isEdit ? 'Update' : 'Create'}
         </Button>
         <Button onClick={onClose}>
-          {isEdit ? 'Update' : 'Create'}
+          Close
         </Button>
       </Modal.Footer>
     </Modal>
