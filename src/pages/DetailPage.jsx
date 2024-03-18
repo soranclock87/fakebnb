@@ -16,26 +16,35 @@ const DetailPage = ({ apartments, setApartments }) => {
   const [nights, setNights] = useState(1);
   const [guests, setGuests] = useState(1);
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
   const { id } = useParams();
   const nav = useNavigate();
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  
 
   
 
   const getSingleApartment = async () => {
-    const res = await fetch(`http://localhost:3000/apartments/${id}`);
+    try {
+      const res = await fetch(`http://localhost:3000/apartments/${id}`);
     const parsed = await res.json();
     setApartment(parsed);
+  } catch (err) {
+    console.error("error apartment:", err)
+  }
   };
-
-  useEffect(() => {
+  useEffect((getSingleApartment) => {
     getSingleApartment();
   }, [id]);
 
 const handleDelete = async (id) => {
+  try {
 console.log("delete the apartment with id:", id)
+} catch (err) {
+  console.error("error delete", err)
 }
+};
 const handleNightsSelect = (e) => {
   setNights(parseInt(e.target.value));
 }

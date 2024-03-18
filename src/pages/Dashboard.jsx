@@ -1,6 +1,7 @@
 import ListApartments from "../components/ListApartments"
 import { Container, Row } from "react-bootstrap"
 
+
 const Dashboard = ({apartments,loading}) => {
 
   return (
@@ -15,4 +16,3 @@ const Dashboard = ({apartments,loading}) => {
   )
 }
 
-export default Dashboard

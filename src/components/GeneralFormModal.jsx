@@ -1,6 +1,5 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import NewPage from "../pages/NewPage"
 
 function MyVerticallyCenteredModal(props) {
 
@@ -18,7 +17,6 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <NewPage/>
           
         
       </Modal.Body>
