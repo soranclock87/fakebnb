@@ -13,7 +13,7 @@ function App() {
 
   const editApartment = async (apartment) => {
     const updateApartment = { id: apartment.id, ...apartment };
-
+    console.log('estoy modificando este', updateApartment);
     try {
       await fetch(`http://localhost:3000/apartments/${apartment.id}`, {
         method: 'PUT',
@@ -30,6 +30,8 @@ function App() {
 
   const createNewApartment = async (apartment) => {
     const updateApartment = { id: (apartment.length + 1).toString(), ...apartment };
+    console.log(updateApartment);
+
     try {
       const res = await fetch('http://localhost:3000/apartments', {
         method: 'POST',
@@ -39,7 +41,9 @@ function App() {
         body: JSON.stringify(apartment),
       });
       const parsed = await res.json();
-      setApartments([parsed, ...updateApartment]);
+      console.log(parsed);
+      setApartments([parsed, ...apartments]);
+
       nav('/');
     } catch (err) {
       console.log(err);
@@ -62,7 +66,7 @@ function App() {
     <>
       <Navbar onSubmit={createNewApartment} />
       <Routes>
-        <Route path="/" element={<Dashboard apartments={apartments} loading={loading} />} />
+        <Route path="/" element={<Dashboard apartments={apartments} setApartments={setApartments} loading={loading} makeFavorite={editApartment} />} />
         <Route path="/apartments/:id" element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment} />} />
       </Routes>
       <Footer />

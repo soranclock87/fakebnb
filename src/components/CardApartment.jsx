@@ -1,19 +1,34 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Carousel from 'react-bootstrap/Carousel';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { FaStar } from 'react-icons/fa';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Placeholder from 'react-bootstrap/Placeholder';
+import { FaStar, FaRegHeart, FaHeart } from 'react-icons/fa';
+import {
+  Card, Carousel, Row, Col, Placeholder,
+} from 'react-bootstrap';
 
-function CardApartment({ apartment, loading }) {
+function CardApartment({
+  apartments, apartment, loading, makeFavorite, setApartments,
+}) {
   const [ready, setReady] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(apartment.favorite || false);
 
   setTimeout(() => {
-    if (loading == false) setReady(true);
+    if (!loading) setReady(true);
   }, 1500);
+
+  const handleFavorite = () => {
+    const updatedFavorite = !isFavorite;
+    setIsFavorite(updatedFavorite);
+    const singleUpdate = { ...apartment, favorite: updatedFavorite };
+    const updatedApartments = apartments.map((ap) => {
+      if (ap.id === apartment.id) {
+        return { ...ap, favorite: updatedFavorite };
+      }
+      return ap;
+    });
+
+    setApartments(updatedApartments);
+    makeFavorite(singleUpdate);
+  };
 
   if (!ready) {
     return (
@@ -40,9 +55,24 @@ function CardApartment({ apartment, loading }) {
       </Card>
     );
   }
-  return (
 
+  return (
     <Card className="w-100">
+      {apartment.rating === 0 ? (
+        <div className="badge-new">New Apartment</div>
+      ) : null}
+
+      {/* Cambia entre estos dos iconos de corazón */}
+      {isFavorite ? (
+        <div className="heart-icon ">
+          <FaHeart size={20} onClick={handleFavorite} />
+        </div>
+      ) : (
+        <div className="heart-icon empty">
+          <FaRegHeart size={20} onClick={handleFavorite} />
+        </div>
+      )}
+      {/* Cambia entre estos dos iconos de corazón */}
 
       <Carousel
         prevIcon={<BsChevronLeft />}
@@ -51,8 +81,9 @@ function CardApartment({ apartment, loading }) {
         indicators
         className="custom-carousel"
       >
-        {apartment.imageUrls.map((imageUrl, idx) => (
-          <Carousel.Item key={idx}>
+        {apartment.imageUrls.map((imageUrl, imageId) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Carousel.Item key={imageId}>
             <Card.Img variant="top" src={imageUrl} />
           </Carousel.Item>
         ))}
