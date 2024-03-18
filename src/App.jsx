@@ -12,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
 
+<<<<<<< HEAD
   const handleCreateNewApartment = async (event) => {
     event.preventDefault();
     //Replace the data from the data recieve of inputs
@@ -39,14 +40,38 @@ function App() {
     }
     //================================================
    
+=======
+
+
+  const editApartment = async (apartment) => {
+   const updateApartment = {id: apartment.id , ...apartment };
+    
+>>>>>>> 26f0b0a3fdef5c63f6a7336db8412cfeb7eff02d
     try {
       //new variable for what the POST fetch returns
+      const res = await fetch(`http://localhost:3000/apartments/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updateApartment),
+      });
+      const parsed = await res.json();
+      nav("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const createNewApartment = async (apartment) => {
+   
+    try {
       const res = await fetch("http://localhost:3000/apartments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newApartment),
+        body: JSON.stringify(apartment),
       });
       const parsed = await res.json();
       setApartments([parsed, ...apartments]);
@@ -71,12 +96,20 @@ function App() {
 
   return (
     <>
+<<<<<<< HEAD
       <Navbar createNew={handleCreateNewApartment}/>
 
 
       <Routes>
         <Route path='/' element={<Dashboard apartments={apartments} loading={loading}/>}/>
         <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments}/>}/>
+=======
+      <Navbar onSubmit={createNewApartment}/>
+      <Routes>
+        <Route path='/' element={<Dashboard apartments={apartments} loading={loading}/>}/>
+        <Route path='/apartments/:id' element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment}/>}/>
+        {/* <Route path='/new' element={<NewPage apartments={apartmentsgit} setApartments={setApartments} />}/> */}
+>>>>>>> 26f0b0a3fdef5c63f6a7336db8412cfeb7eff02d
       </Routes>
       <Footer/>
     </>
