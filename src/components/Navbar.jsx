@@ -11,11 +11,11 @@ import User from "../assets/user.jpg"
 import Menu from "../assets/menu.png"
 import GeneralFormModal from "../components/GeneralFormModal";
 
-function NavbarApp({createNew}) {
+function NavbarApp({onSubmit}) {
   const location = useLocation(); 
   const [url, setUrl] = useState(null);
   const [modalShow, setModalShow] = useState(false);
-const handleShow = () => setShow(true);
+  const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
 
@@ -64,7 +64,8 @@ const handleShow = () => setShow(true);
 
         <GeneralFormModal
             show={modalShow}
-            createNew={createNew}
+            isEdit={false}
+            onSubmit={onSubmit}
             onHide={() => setModalShow(false)}
           />
 
