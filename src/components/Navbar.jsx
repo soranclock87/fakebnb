@@ -11,17 +11,18 @@ import User from '../assets/user.jpg';
 import Menu from '../assets/menu.png';
 import GeneralFormModal from './GeneralFormModal';
 
-function NavbarApp({ onSubmit }) {
+function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
   const handleModalClose = () => setModalShow(false);
 
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
 
-  const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -29,7 +30,11 @@ function NavbarApp({ onSubmit }) {
       event.preventDefault();
       event.stopPropagation();
     }
+    const filteredApartments = apartments.filter((apartment) => apartment
+      .location.toLowerCase().includes(searchInput.toLowerCase()));
 
+    console.log(filteredApartments);
+    onSearchSubmit(filteredApartments);
     setValidated(true);
   };
 
@@ -92,6 +97,7 @@ function NavbarApp({ onSubmit }) {
                 required
                 type="text"
                 placeholder="Search destinations"
+                onChange={(e) => setSearchInput(e.currentTarget.value)}
               />
             </Form.Group>
             <Form.Group className="input-nofilter" controlId="validationCustom02">

@@ -10,6 +10,7 @@ function App() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
+  const [allApartments, setAllApartments] = useState([]);
 
   const editApartment = async (apartment) => {
     const updateApartment = { id: apartment.id, ...apartment };
@@ -55,6 +56,7 @@ function App() {
     const res = await fetch('http://localhost:3000/apartments');
     const parsed = await res.json();
     setApartments(parsed);
+    setAllApartments(parsed);
     setLoading(false);
   };
 
@@ -62,9 +64,15 @@ function App() {
     getOneProduct();
   }, []);
 
+  const filterApartments = (filteredApartments) => setApartments(filteredApartments);
+
   return (
     <>
-      <Navbar onSubmit={createNewApartment} />
+      <Navbar
+        onSubmit={createNewApartment}
+        onSearchSubmit={filterApartments}
+        apartments={allApartments}
+      />
       <Routes>
         <Route path="/" element={<Dashboard apartments={apartments} setApartments={setApartments} loading={loading} makeFavorite={editApartment} />} />
         <Route path="/apartments/:id" element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment} />} />
