@@ -16,3 +16,4 @@ const Dashboard = ({apartments,loading}) => {
   )
 }
 
+export default Dashboard

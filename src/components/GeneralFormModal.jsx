@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 
+
 function GeneralFormModal(props) {
   const defaultApartment = {
     name: "",
@@ -71,6 +72,7 @@ function GeneralFormModal(props) {
     >
     
       <Modal.Body>
+
       {props.isEdit ? "Edit the Apartment" : "Create a new Apartment"}
         <form className="mt-5 pt-5" onSubmit={handleSubmit}>
           <label>

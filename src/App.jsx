@@ -17,9 +17,10 @@ function App() {
   const editApartment = async (apartment) => {
    const updateApartment = {id: apartment.id , ...apartment };
     
+
     try {
       //new variable for what the POST fetch returns
-      const res = await fetch(`http://localhost:3000/apartments/${id}`, {
+      const res = await fetch(`http://localhost:3000/apartments/${apartment.id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -27,6 +28,7 @@ function App() {
         body: JSON.stringify(updateApartment),
       });
       const parsed = await res.json();
+      console.log(parsed)
       nav("/");
     } catch (err) {
       console.log(err);
