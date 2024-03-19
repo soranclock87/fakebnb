@@ -13,7 +13,7 @@ function CardApartment({
 
   setTimeout(() => {
     if (!loading) setReady(true);
-  }, 1500);
+  }, 500);
 
   const handleFavorite = () => {
     const updatedFavorite = !isFavorite;
