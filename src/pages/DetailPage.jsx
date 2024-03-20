@@ -11,7 +11,7 @@ import NoReserveBlock from '../components/NoReserveBlock';
 
 function DetailPage({ apartments, setApartments, onSubmit }) {
   const [apartment, setApartment] = useState();
-
+  const [ApartmentNotFound, setApartmentNotFound] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -23,14 +23,27 @@ function DetailPage({ apartments, setApartments, onSubmit }) {
   const nav = useNavigate();
 
   const getSingleApartment = async () => {
-    const res = await fetch(`http://localhost:3000/apartments/${id}`);
-    const parsed = await res.json();
-    setApartment(parsed);
+    try {
+      const res = await fetch(`http://localhost:3000/apartments/${id}`);
+      if (!res.ok) {
+        setApartmentNotFound(true);
+        return;
+      }
+      const parsed = await res.json();
+      setApartment(parsed);
+    } catch (error) {
+      console.error('Error fetching apartment data:', error);
+      setApartmentNotFound(true); 
+    }
   };
 
   useEffect(() => {
     getSingleApartment();
   }, [id]);
+
+  if (ApartmentNotFound) {
+    return <p>No apartment was found!</p>;
+  }
 
   const handleDelete = async (apartmentId) => {
     try {
@@ -47,10 +60,6 @@ function DetailPage({ apartments, setApartments, onSubmit }) {
       console.log(err);
     }
   };
-
-  if (!apartment) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div className="content-page detail-page pt-5 pb-5 px-5">
