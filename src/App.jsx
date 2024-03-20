@@ -7,6 +7,8 @@ import DetailPage from './pages/DetailPage';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
+const API_URL = 'https://backend-fakebnb.adaptable.app/apartments' || 'http://localhost:3000/apartments';
+
 function App() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +18,7 @@ function App() {
     const updateApartment = { id: apartment.id, ...apartment };
     console.log('estoy modificando este', updateApartment);
     try {
-      await fetch(`http://localhost:3000/apartments/${apartment.id}`, {
+      await fetch(`${API_URL}/${apartment.id}`, {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
@@ -34,7 +36,7 @@ function App() {
     console.log(updateApartment);
 
     try {
-      const res = await fetch('http://localhost:3000/apartments', {
+      const res = await fetch(`${API_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +55,7 @@ function App() {
 
   const getOneProduct = async () => {
     setLoading(true);
-    const res = await fetch('http://localhost:3000/apartments');
+    const res = await fetch(`${API_URL}`);
     const parsed = await res.json();
     setApartments(parsed);
     setLoading(false);

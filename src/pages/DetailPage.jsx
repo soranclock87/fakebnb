@@ -9,6 +9,8 @@ import Calendar from '../assets/event.png';
 import GeneralFormModal from '../components/GeneralFormModal';
 import NoReserveBlock from '../components/NoReserveBlock';
 
+const API_URL = 'https://backend-fakebnb.adaptable.app/apartments' || 'http://localhost:3000/apartments';
+
 function DetailPage({ apartments, setApartments, onSubmit }) {
   const [apartment, setApartment] = useState();
 
@@ -23,7 +25,7 @@ function DetailPage({ apartments, setApartments, onSubmit }) {
   const nav = useNavigate();
 
   const getSingleApartment = async () => {
-    const res = await fetch(`http://localhost:3000/apartments/${id}`);
+    const res = await fetch(`${API_URL}/${id}`);
     const parsed = await res.json();
     setApartment(parsed);
   };
@@ -35,7 +37,7 @@ function DetailPage({ apartments, setApartments, onSubmit }) {
   const handleDelete = async (apartmentId) => {
     try {
       await fetch(
-        `http://localhost:3000/apartments/${apartmentId}`,
+        `${API_URL}/${apartmentId}`,
         {
           method: 'DELETE',
         },
