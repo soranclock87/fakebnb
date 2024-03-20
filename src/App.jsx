@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import DetailPage from './pages/DetailPage';
@@ -10,7 +11,8 @@ function App() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
-  const [allApartments, setAllApartments] = useState([]);
+  const { t, i18n } = useTranslation();
+  const [messages, setMessages] = useState(0);
 
   const editApartment = async (apartment) => {
     const updateApartment = { id: apartment.id, ...apartment };
@@ -56,7 +58,6 @@ function App() {
     const res = await fetch('http://localhost:3000/apartments');
     const parsed = await res.json();
     setApartments(parsed);
-    setAllApartments(parsed);
     setLoading(false);
   };
 
@@ -64,15 +65,10 @@ function App() {
     getOneProduct();
   }, []);
 
-  const filterApartments = (filteredApartments) => setApartments(filteredApartments);
-
   return (
     <>
-      <Navbar
-        onSubmit={createNewApartment}
-        onSearchSubmit={filterApartments}
-        apartments={allApartments}
-      />
+      <Navbar onSubmit={createNewApartment} />
+      <h1>{t('main.header')}</h1>
       <Routes>
         <Route path="/" element={<Dashboard apartments={apartments} setApartments={setApartments} loading={loading} makeFavorite={editApartment} />} />
         <Route path="/apartments/:id" element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment} />} />

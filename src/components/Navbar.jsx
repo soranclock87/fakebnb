@@ -2,6 +2,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,12 +12,20 @@ import User from '../assets/user.jpg';
 import Menu from '../assets/menu.png';
 import GeneralFormModal from './GeneralFormModal';
 
+const locales = {
+  en: { title: 'English' },
+  es: { title: 'Español' },
+  it: { title: 'Italian' },
+};
+
 function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const handleModalClose = () => setModalShow(false);
+  const { t, i18n } = useTranslation();
+  const [messages, setMessages] = useState(0);
 
   useEffect(() => {
     setUrl(location.pathname);
@@ -62,6 +71,17 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
             New Apartment
           </Button>
           <Nav.Link href="/experiences" className={`custom-nav-text ${url === '/experiences' ? ' active-text' : ''}`}>Online Experiences</Nav.Link>
+        </Nav>
+        <Nav>
+          <ul>
+            {Object.keys(locales).map((locale) => (
+              <li key={locale}>
+                <button style={{ fontWeight: i18n.resolvedLanguage === locale ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(locale)}>
+                  {locales[locale].title}
+                </button>
+              </li>
+            ))}
+          </ul>
         </Nav>
         <Nav>
 

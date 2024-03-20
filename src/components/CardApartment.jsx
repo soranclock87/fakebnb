@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { FaStar, FaRegHeart, FaHeart } from 'react-icons/fa';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useTranslation } from 'react-i18next';
 import {
   Card, Carousel, Row, Col, Placeholder,
 } from 'react-bootstrap';
@@ -10,6 +12,7 @@ function CardApartment({
 }) {
   const [ready, setReady] = useState(false);
   const [isFavorite, setIsFavorite] = useState(apartment.favorite || false);
+  const { t } = useTranslation();
 
   setTimeout(() => {
     if (!loading) setReady(true);
@@ -103,7 +106,7 @@ function CardApartment({
           </Col>
         </Row>
         <Card.Text className="text-card mt-1">
-          Host of apartment :
+          {t('singleCard.host')}
           {' '}
           {apartment.host.name}
         </Card.Text>

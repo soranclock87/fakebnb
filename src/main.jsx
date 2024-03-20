@@ -4,9 +4,13 @@ import App from './App.jsx';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './i18n.js';
+import { Suspense } from 'react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Router>
-    <App />
-  </Router>,
+  <Suspense fallback="...loading">
+    <Router>
+      <App />
+    </Router>
+  </Suspense>,
 );
