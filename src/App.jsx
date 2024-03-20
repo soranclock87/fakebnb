@@ -7,7 +7,7 @@ import DetailPage from './pages/DetailPage';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
-const API_URL = 'https://backend-fakebnb.adaptable.app/apartments' || 'http://localhost:3000/apartments';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/apartments';
 
 function App() {
   const [apartments, setApartments] = useState([]);
@@ -55,6 +55,7 @@ function App() {
 
   const getOneProduct = async () => {
     setLoading(true);
+    console.log(API_URL);
     const res = await fetch(`${API_URL}`);
     const parsed = await res.json();
     setApartments(parsed);
