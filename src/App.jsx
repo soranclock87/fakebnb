@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import DetailPage from './pages/DetailPage';
 import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
 
 function App() {
   const [apartments, setApartments] = useState([]);
@@ -72,6 +73,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard apartments={apartments} setApartments={setApartments} loading={loading} makeFavorite={editApartment} />} />
         <Route path="/apartments/:id" element={<DetailPage apartments={apartments} setApartments={setApartments} onSubmit={editApartment} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
