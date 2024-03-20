@@ -4,7 +4,9 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import CardApartment from './CardApartment';
 
-function ListApartments({ apartments, loading, makeFavorite, setApartments }) {
+function ListApartments({
+  apartments, loading, makeFavorite, setApartments,
+}) {
   return (
     <>
       {apartments.map((apartment) => (

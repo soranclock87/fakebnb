@@ -1,6 +1,6 @@
 {
     "main": {
-      "header": "Bienvenido a la app!"
+      "header": "Benvenuti to the app!"
     },
     "navlinks": {
         "stays": "Estancias",
@@ -8,19 +8,20 @@
         "experience": "Experiencias"
     },
     "singleCard":{
-        "host": "Anfitrión:",
-        "guests": "Max. Viajeros",
-        "night": "noches"
+        "host": "El Anfitrión es :",
+        "guests": "Max. Guests",
+        "night": "night"
     },
     "filter": {
-        "where": "Dónde",
-        "placeWhere": "Busca un destino",
+        "where": "Where",
+        "placeWhere": "Search destinations",
         "check": "Check in",
-        "placeCheck": "Fecha",
+        "placeCheck": "Add dates",
         "checkOut": "Check out",
-        "who": "Quienes",
-        "placeWho": "viajeros" 
+        "who": "Who",
+        "placeWho": "Add Guess" 
     },
+
     "details": {
         "edit":"Edit",
         "delete":"Delete",
@@ -56,6 +57,29 @@
             "fee":"fakebnb service fee",
             "taxes":"Taxes",
             "total":"Total"
+        },
+        "formAdd": {
+            "create":"Create",
+            "edit":"Edit",
+            "title":"a new Apartment",
+            "lname":"Name of apartment",
+            "name":"Apartment name",
+            "ldescription":"Description",
+            "description":"Description",
+            "lprice":"Price per night",
+            "lguests":"Max guests",
+            "llocation":"Location",
+            "location":"Location",
+            "hostName":"Host name",
+            "close":"Close"
+        },
+        "footer":{
+            "terms":"Terms",
+            "sitemap":"Sitemap",
+            "privacy":"Privacy",
+            "lang":"English(US)",
+            "support":"Suport & resources"
         }
+            
     }
   }

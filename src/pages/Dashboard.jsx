@@ -10,7 +10,6 @@ function Dashboard({
 
   return (
     <div className="pt-5 pb-5 content-page">
-      <h1>{t('main.header')}</h1>
       <Container fluid className="px-5">
         <Row gap={4}>
           <ListApartments

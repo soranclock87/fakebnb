@@ -72,7 +72,7 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
           </Button>
           <Nav.Link href="/experiences" className={`custom-nav-text ${url === '/experiences' ? ' active-text' : ''}`}>Online Experiences</Nav.Link>
         </Nav>
-        <Nav>
+        {/* <Nav>
           <ul>
             {Object.keys(locales).map((locale) => (
               <li key={locale}>
@@ -82,7 +82,7 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
               </li>
             ))}
           </ul>
-        </Nav>
+        </Nav> */}
         <Nav>
 
           <GeneralFormModal
@@ -100,9 +100,13 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              {Object.keys(locales).map((locale) => (
+
+                <Dropdown.Item key={locale} href="#/action-1" type="submit" onClick={() => i18n.changeLanguage(locale)}>
+                  {locales[locale].title}
+                </Dropdown.Item>
+
+              ))}
             </Dropdown.Menu>
           </Dropdown>
         </Nav>

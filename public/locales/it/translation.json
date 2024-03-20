@@ -57,6 +57,29 @@
             "fee":"fakebnb service fee",
             "taxes":"Taxes",
             "total":"Total"
+        },
+        "formAdd": {
+            "create":"Create",
+            "edit":"Edit",
+            "title":"a new Apartment",
+            "lname":"Name of apartment",
+            "name":"Apartment name",
+            "ldescription":"Description",
+            "description":"Description",
+            "lprice":"Price per night",
+            "lguests":"Max guests",
+            "llocation":"Location",
+            "location":"Location",
+            "hostName":"Host name",
+            "close":"Close"
+        },
+        "footer":{
+            "terms":"Terms",
+            "sitemap":"Sitemap",
+            "privacy":"Privacy",
+            "lang":"English(US)",
+            "support":"Suport & resources"
         }
+            
     }
   }

@@ -1,12 +1,12 @@
 {
     "main": {
-      "header": "Welcome to the app!"
+      "header": "Benvenuti to the app!"
     },
     "navlinks": {
-        "stays": "Stays",
-        "new": "New Apartment",
-        "experience": "Experiences"
-    }, 
+        "stays": "Estancias",
+        "new": "Nuevo Apartmento",
+        "experience": "Experiencias"
+    },
     "singleCard":{
         "host": "Host of apartment :",
         "guests": "Max. Guests",
@@ -21,6 +21,7 @@
         "who": "Who",
         "placeWho": "Add Guess" 
     },
+
     "details": {
         "edit":"Edit",
         "delete":"Delete",
@@ -56,6 +57,29 @@
             "fee":"fakebnb service fee",
             "taxes":"Taxes",
             "total":"Total"
+        },
+        "formAdd": {
+            "create":"Create",
+            "edit":"Edit",
+            "title":"a new Apartment",
+            "lname":"Name of apartment",
+            "name":"Apartment name",
+            "ldescription":"Description",
+            "description":"Description",
+            "lprice":"Price per night",
+            "lguests":"Max guests",
+            "llocation":"Location",
+            "location":"Location",
+            "hostName":"Host name",
+            "close":"Close"
+        },
+        "footer":{
+            "terms":"Terms",
+            "sitemap":"Sitemap",
+            "privacy":"Privacy",
+            "lang":"English(US)",
+            "support":"Suport & resources"
         }
+            
     }
   }
