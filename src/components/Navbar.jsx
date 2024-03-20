@@ -25,7 +25,6 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
   const [searchInput, setSearchInput] = useState('');
   const handleModalClose = () => setModalShow(false);
   const { t, i18n } = useTranslation();
-  const [messages, setMessages] = useState(0);
 
   useEffect(() => {
     setUrl(location.pathname);
@@ -63,26 +62,19 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
           fakebnb
         </Navbar.Brand>
         <Nav>
-          <Nav.Link href="/" className={`custom-nav-text ${url === '/' ? ' active-text' : ''}`}>Stays</Nav.Link>
+          <Nav.Link href="/" className={`custom-nav-text ${url === '/' ? ' active-text' : ''}`}>
+            {t('navlinks.stays')}
+          </Nav.Link>
           <Button
             className=" custom-nav-text"
             onClick={() => setModalShow(true)}
           >
-            New Apartment
+            {t('navlinks.new')}
           </Button>
-          <Nav.Link href="/experiences" className={`custom-nav-text ${url === '/experiences' ? ' active-text' : ''}`}>Online Experiences</Nav.Link>
+          <Nav.Link href="/experiences" className={`custom-nav-text ${url === '/experiences' ? ' active-text' : ''}`}>
+            {t('navlinks.experience')}
+          </Nav.Link>
         </Nav>
-        {/* <Nav>
-          <ul>
-            {Object.keys(locales).map((locale) => (
-              <li key={locale}>
-                <button style={{ fontWeight: i18n.resolvedLanguage === locale ? 'bold' : 'normal' }} type="submit" onClick={() => i18n.changeLanguage(locale)}>
-                  {locales[locale].title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </Nav> */}
         <Nav>
 
           <GeneralFormModal
@@ -116,11 +108,11 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
         <Form noValidate className="mb-3 form-filters" validated={validated} onSubmit={handleSubmit}>
           <>
             <Form.Group className="ps-4 input-nofilter" controlId="validationCustom01">
-              <Form.Label>Where</Form.Label>
+              <Form.Label>{t('filter.where')}</Form.Label>
               <Form.Control
                 required
                 type="text"
-                placeholder="Search destinations"
+                placeholder={t('filter.placeWhere')}
                 onChange={(e) => setSearchInput(e.currentTarget.value)}
               />
             </Form.Group>
@@ -129,7 +121,7 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
               <Form.Control
                 required
                 type="text"
-                placeholder="Add dates"
+                placeholder={t('filter.placeCheck')}
               />
             </Form.Group>
             <Form.Group className="input-nofilter" controlId="validationCustom02">
@@ -137,17 +129,17 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
               <Form.Control
                 required
                 type="text"
-                placeholder="Add dates"
+                placeholder={t('filter.placeCheck')}
               />
 
             </Form.Group>
             <Form.Group className=" input-nofilter special-filter" controlId="validationCustom02">
               <div>
-                <Form.Label>Who</Form.Label>
+                <Form.Label>{t('filter.who')}</Form.Label>
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Add guess"
+                  placeholder={t('filter.placeWho')}
                 />
               </div>
 

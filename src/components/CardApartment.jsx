@@ -111,7 +111,7 @@ function CardApartment({
           {apartment.host.name}
         </Card.Text>
         <Card.Text className="text-card">
-          Max. Guests :
+          {t('singleCard.guests')}
           {' '}
           {apartment.maxGuests}
         </Card.Text>
@@ -121,7 +121,7 @@ function CardApartment({
             {apartment.price}
           </span>
           {' '}
-          night
+          {t('singleCard.night')}
         </Card.Text>
       </Card.Body>
     </Card>

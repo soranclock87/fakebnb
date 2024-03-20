@@ -8,78 +8,80 @@
         "experience": "Experiencias"
     },
     "singleCard":{
-        "host": "El Anfitrión es :",
-        "guests": "Max. Guests",
-        "night": "night"
+        "host": "El Anfitrión es:",
+        "guests": "Max. viajeros",
+        "night": "Noche"
     },
     "filter": {
-        "where": "Where",
-        "placeWhere": "Search destinations",
+        "where": "Dónde",
+        "placeWhere": "Buscar Destino",
         "check": "Check in",
-        "placeCheck": "Add dates",
+        "placeCheck": "Fechas",
         "checkOut": "Check out",
-        "who": "Who",
-        "placeWho": "Add Guess" 
+        "who": "Quienes",
+        "placeWho": "Añade Viajeros" 
     },
 
     "details": {
-        "edit":"Edit",
-        "delete":"Delete",
-        "guest":"guests",
-        "bedrooms":"bedrooms",
-        "beds":"beds",
-        "baths":"baths",
-        "hosted":" Hosted by",
-        "hostYear":"years hosting",
+        "edit":"Editar",
+        "delete":"Borrar",
+        "premium": "Estancia premium en",
+        "guest":"viajeros",
+        "bedrooms":"Habitaciones",
+        "beds":"camas",
+        "baths":"baños",
+        "hosted":"Anfitrión ",
+        "super": "Superanfitrión",
+        "hostYear":"Años siendo anfitrión",
         "reviews":"reviews",
-        "cancelation":"Free cancellation 24h before",
+        "cancelation":"Cancelación libre antes de 24 horas.",
         "location": {
-            "title": "Great location",
-            "subtitle": "100% of recent guests gave the location a 5-star rating."
+            "title": "Gran emplazamiento",
+            "subtitle": "100% de los últimos viajeros lo puntuan con 5 estrellas"
         },
         "superHost": {
-            "title": "is a Superhost",
-            "subtitle": "Superhosts are experienced, highly rated Hosts."
+            "title": "es un Superanfitrión",
+            "subtitle": "Superanfitrión está muy bien puntuado."
         },
         "adviseTranslation": {
-            "message": "Some info has been automatically translated.",
-            "button": "Show original"
+            "message": "Alguna información ha sido automáticamente actualizada",
+            "button": "Mostrar original"
         },
-        "btnMore":"Show more",
-        "privacy":"Terms of Service Users outside of the EEA, UK, and Australia Section 22 of these Terms contains an arbitration agreement and class action waiver that apply to all claims brought against Airbnb in the United States. Please read them carefully. Last Updated: January 25, 2024 Thank you for using Airbnb! These Terms of Service (“Terms”) are a binding legal agreement between you and Airbnb that govern the right to use the websites, applications, and other offerings from Airbnb (collectively, the “Airbnb Platform”). When used in these Terms, “Airbnb,” “we,” “us,” or “our” refers to the Airbnb entity set out on Schedule 1 with whom you are contracting. The Airbnb Platform enables users (“Members”) to publish, offer, search for, and book services. Members who publish and offer services are “Hosts” and Members who search for, book, or use services are “Guests.” Hosts offer accommodations (“Accommodations”), activities, excursions, and events (“Experiences”), and a variety of travel and other services (collectively, “Host Services,” and each Host Service offering, a “Listing”). As the provider of the Airbnb Platform, Airbnb does not own, control, offer or manage any Listings or Host Services. Airbnb is not a party to the contracts entered into directly between Hosts and Guests, nor is Airbnb a real estate broker, travel agency, or insurer. Airbnb is not acting as an agent in any capacity for any Member, except as specified in the Payments Terms of Service (“Payment Terms”). To learn more about Airbnb’s role see Section 15. We maintain other terms and policies that supplement these Terms like our Privacy Policy, which describes our collection and use of personal data, and our Payments Terms, which govern any payment services provided to Members by the Airbnb payment entities (collectively Airbnb Payments).",
-        "privacy2":"Privacy Policy At Airbnb, we prioritize the privacy and security of our community members. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you use our platform and services. Information We Collect When you create an Airbnb account or use our services, we collect various types of information to provide and improve our platform. This includes: Account Information: When you sign up for an account, we collect your name, email address, phone number, and other details necessary to create and manage your account. Booking and Listing Information: When you make a reservation or list a property, we collect information such as your travel dates, payment details, and property details. Communications: We may collect information from your communications with other users or with Airbnb support, including messages, chats, and call recordings. Usage Information: We collect data about how you interact with our platform, including your browsing activity, searches, clicks, and preferences. Device and Location Information: We collect information about the devices you use to access Airbnb and your approximate location based on IP address or mobile device data. How We Use Your Information We use the information we collect for various purposes, including: Providing Services: To facilitate bookings, payments, and communication between users. Improving and Personalizing: To analyze usage patterns, personalize your experience, and develop new features and services. Communications: To send you notifications, updates, and marketing communications based on your preferences. Safety and Security: To detect and prevent fraud, abuse, and other unauthorized activities. Legal Compliance: To comply with legal obligations and respond to legal requests. Information Sharing We may share your information with third parties in the following circumstances: With Other Users: We may share your information with other users involved in your bookings or interactions on Airbnb. Service Providers: We may share your information with third-party service providers who assist us in providing and improving our services. Business Transfers: In the event of a merger, acquisition, or sale of assets, your information may be transferred to another company. Legal Compliance: We may disclose your information to comply with legal obligations or respond to legal requests from authorities. Your Choices You have options to control how your information is used and shared on Airbnb: Account Settings: You can manage your account settings and preferences to control notifications and privacy settings. Communication Preferences: You can choose to opt out of certain communications or marketing emails. Cookies and Tracking: You can adjust your browser settings to reject cookies or limit tracking. Data Security We take measures to protect your information from unauthorized access, disclosure, or alteration. This includes encryption, secure storage, and regular security audits. Changes to this Policy We may update this Privacy Policy from time to time. We will notify you of any material changes and seek your consent if required by law. Contact Us If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at privacy@airbnb.com.",
+        "btnMore":"Mostrar más",
+        "privacy":"Términos de servicio Usuarios fuera del EEE, Reino Unido y Australia La Sección 22 de estos Términos contiene un acuerdo de arbitraje y una renuncia a demandas colectivas que se aplican a todas las reclamaciones presentadas contra Airbnb en los Estados Unidos. Por favor léalos atentamente. Última actualización: 25 de enero de 2024 ¡Gracias por usar Airbnb! Estos Términos de servicio (“Términos”) son un acuerdo legal vinculante entre usted y Airbnb que rige el derecho a utilizar los sitios web, las aplicaciones y otras ofertas de Airbnb (colectivamente, la “Plataforma Airbnb”). Cuando se utiliza en estos Términos, “Airbnb”, “nosotros”, “nos” o “nuestro” se refiere a la entidad de Airbnb establecida en el Anexo 1 con la que usted celebra el contrato. La Plataforma Airbnb permite a los usuarios (“Miembros”) publicar, ofrecer, buscar y reservar servicios. Los miembros que publican y ofrecen servicios son Anfitriones y los Miembros que buscan, reservan o utilizan servicios son Invitados. Los anfitriones ofrecen alojamiento (“Alojamientos”), actividades, excursiones y eventos (“Experiencias”), y una variedad de viajes y otros servicios (colectivamente, “Servicios de anfitrión” y cada oferta de Servicio de anfitrión, un “Anuncio”). Como proveedor de la Plataforma Airbnb, Airbnb no posee, controla, ofrece ni gestiona ningún Anuncio ni Servicio de Anfitrión. Airbnb no es parte en los contratos celebrados directamente entre Anfitriones y Huéspedes, ni es un corredor de bienes raíces, agencia de viajes o aseguradora. Airbnb no actúa como agente en ninguna capacidad para ningún Miembro, excepto según se especifica en las Condiciones de Servicio de Pagos (“Condiciones de Pago”). Para obtener más información sobre la función de Airbnb, consulte la Sección 15. Mantenemos otros términos y políticas que complementan estos Términos, como nuestra Política de Privacidad, que describe nuestra recopilación y uso de datos personales, y nuestros Términos de Pago, que rigen cualquier servicio de pago proporcionado a los Miembros por parte de Airbnb. Entidades de pago de Airbnb (colectivamente Pagos de Airbnb).",
+        "privacy2":"Política de Privacidad En Airbnb, damos prioridad a la privacidad y seguridad de los miembros de nuestra comunidad. La presente Política de Privacidad describe cómo recopilamos, utilizamos, revelamos y protegemos su información personal cuando utiliza nuestra plataforma y nuestros servicios. Información que recopilamos Cuando usted crea una cuenta Airbnb o utiliza nuestros servicios, recopilamos diversos tipos de información para proporcionar y mejorar nuestra plataforma. Esto incluye: Información de la cuenta: Cuando se registra para obtener una cuenta, recopilamos su nombre, dirección de correo electrónico, número de teléfono y otros detalles necesarios para crear y gestionar su cuenta. Información sobre reservas y listados: Cuando realiza una reserva o publica una propiedad, recopilamos información como sus fechas de viaje, detalles de pago y detalles de la propiedad. Comunicaciones: Podemos recopilar información de sus comunicaciones con otros usuarios o con el servicio de asistencia de Airbnb, incluidos mensajes, chats y grabaciones de llamadas. Información de uso: Recopilamos datos sobre cómo interactúa con nuestra plataforma, incluida su actividad de navegación, búsquedas, clics y preferencias. Información sobre dispositivos y ubicación: Recopilamos información sobre los dispositivos que utiliza para acceder a Airbnb y su ubicación aproximada basada en la dirección IP o los datos del dispositivo móvil. Cómo utilizamos su información Utilizamos la información que recopilamos para diversos fines, entre los que se incluyen: Prestación de Servicios: Para facilitar las reservas, los pagos y la comunicación entre los usuarios. Mejorar y personalizar: Para analizar patrones de uso, personalizar su experiencia y desarrollar nuevas funciones y servicios. Comunicaciones: Para enviarle notificaciones, actualizaciones y comunicaciones de marketing basadas en sus preferencias. Seguridad y protección: Para detectar y prevenir fraudes, abusos y otras actividades no autorizadas. Cumplimiento legal: Para cumplir con las obligaciones legales y responder a las solicitudes legales. Intercambio de información Podemos compartir su información con terceros en las siguientes circunstancias: Con Otros Usuarios: Podremos compartir su información con otros usuarios que participen en sus reservas o interacciones en Airbnb. Proveedores de Servicios: Podremos compartir su información con terceros proveedores de servicios que nos ayuden a prestar y mejorar nuestros servicios. Transferencias empresariales: En caso de fusión, adquisición o venta de activos, su información podrá ser transferida a otra empresa. Cumplimiento legal: Podemos divulgar su información para cumplir con obligaciones legales o responder a solicitudes legales de las autoridades. Sus opciones Usted dispone de opciones para controlar cómo se utiliza y comparte su información en Airbnb: Configuración de la cuenta: Puede gestionar los ajustes y preferencias de su cuenta para controlar las notificaciones y los ajustes de privacidad. Preferencias de comunicación: Puede optar por no recibir determinadas comunicaciones o correos electrónicos de marketing. Cookies y seguimiento: Puede ajustar la configuración de su navegador para rechazar las cookies o limitar el seguimiento. Seguridad de los datos Tomamos medidas para proteger su información frente a accesos no autorizados, divulgación o alteración. Esto incluye encriptación, almacenamiento seguro y auditorías de seguridad periódicas. Cambios en esta Política Podemos actualizar esta Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio sustancial y solicitaremos su consentimiento si así lo exige la ley. Póngase en contacto con nosotros Si tiene alguna pregunta o duda sobre esta Política de Privacidad o nuestras prácticas de datos, póngase en contacto con nosotros en privacy@airbnb.com. Traducción realizada con la versión gratuita del traductor DeepL.com"
+        },
         "reserve":{
-            "night": "night",
-            "numNights":"Nights",
-            "numGuests":"Guests",
-            "noReserve":"No Reserve",
-            "advise":"You won´t be charged yet",
-            "fee":"fakebnb service fee",
-            "taxes":"Taxes",
+            "night": "noche",
+            "numNights":"Noches",
+            "numGuests":"Viajeros",
+            "noReserve":"No Reservar",
+            "advise":"No se harán cargos aún.",
+            "fee":"fakebnb coste por servicio",
+            "taxes":"Impuestos",
             "total":"Total"
         },
         "formAdd": {
-            "create":"Create",
-            "edit":"Edit",
-            "title":"a new Apartment",
-            "lname":"Name of apartment",
-            "name":"Apartment name",
-            "ldescription":"Description",
-            "description":"Description",
-            "lprice":"Price per night",
-            "lguests":"Max guests",
-            "llocation":"Location",
-            "location":"Location",
-            "hostName":"Host name",
-            "close":"Close"
+            "create":"Crear",
+            "edit":"Editar",
+            "title":"Nuevo apartamento",
+            "lname":"Nombre del apartamento",
+            "name":"nombre del apartamento",
+            "ldescription":"Descripción",
+            "description":"descripción",
+            "lprice":"Precio por noche",
+            "lguests":"Max viajeros",
+            "llocation":"Localización",
+            "location":"Localización",
+            "hostName":"Nombre del anfitrión",
+            "close":"Cerrar"
         },
-        "footer":{
-            "terms":"Terms",
-            "sitemap":"Sitemap",
-            "privacy":"Privacy",
-            "lang":"English(US)",
-            "support":"Suport & resources"
+        "foot":{
+            "terms":"Terminos",
+            "sitemap":"mapa del sitio",
+            "privacy":"Privacidad",
+            "lang":"Español(ES)",
+            "support":"Soporte & Recursos"
         }
             
     }
-  }

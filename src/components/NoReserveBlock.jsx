@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 function NoReserveBlock({ apartment }) {
   const [selectedValue, setSelectedValue] = useState('');
   const [numNights, setNumNights] = useState(1);
+  const { t } = useTranslation();
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
-    setNumNights(parseInt(event.target.value)); // Convertir a número entero
+    // eslint-disable-next-line radix
+    setNumNights(parseInt(event.target.value));
   };
 
   const guestOptions = [];
+  // eslint-disable-next-line no-plusplus
   for (let i = 1; i <= apartment.maxGuests; i++) {
     guestOptions.push(<option key={i} value={i}>{i}</option>);
   }
@@ -32,10 +36,10 @@ function NoReserveBlock({ apartment }) {
           {' '}
           {apartment.price}
           {' '}
-          <span className="">night</span>
+          <span className="">{t('reserve.night')}</span>
         </h2>
         <Form.Select aria-label=" " className="first-select" onChange={handleSelectChange} value={selectedValue}>
-          <option>Nights </option>
+          <option>{t('reserve.numNights')}</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -46,17 +50,17 @@ function NoReserveBlock({ apartment }) {
         </Form.Select>
 
         <Form.Select className=" second-select mb-3">
-          <option>Guests</option>
+          <option>{t('reserve.numGuests')}</option>
           {guestOptions}
         </Form.Select>
 
         <Button className="no-reserve-btn mb-3">
-          No Reserve
+          {t('reserve.noReserve')}
         </Button>
 
         <p className="normal-text justify-content-center mb-3 d-flex">
           {' '}
-          You won´t be charged yet
+          {t('reserve.advise')}
         </p>
 
         <div className="price-night mb-3 d-flex normal-text justify-content-between">
@@ -68,7 +72,7 @@ function NoReserveBlock({ apartment }) {
             {' '}
             {numNights}
             {' '}
-            night
+            {t('reserve.night')}
           </p>
           <p>
             €
@@ -76,16 +80,16 @@ function NoReserveBlock({ apartment }) {
           </p>
         </div>
         <div className="price-fee mb-3 d-flex normal-text justify-content-between">
-          <p className="link">fakebnb service fee</p>
+          <p className="link">{t('reserve.fee')}</p>
           <p>€ 60</p>
         </div>
         <div className="price-taxes mb-3 d-flex normal-text justify-content-between">
-          <p className="link">Taxes</p>
+          <p className="link">{t('reserve.taxes')}</p>
           <p>€ 26</p>
         </div>
         <hr />
         <div className="price-taxes d-flex bold-text justify-content-between">
-          <p>Total</p>
+          <p>{t('reserve.total')}</p>
           <p>
             €
             {obtainTotal()}

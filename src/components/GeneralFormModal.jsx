@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function GeneralFormModal({
   show, apartment, isEdit, onSubmit, onHide, onClose,
@@ -27,6 +28,7 @@ function GeneralFormModal({
     },
     favorite: false,
   };
+  const { t } = useTranslation();
 
   const [form, setForm] = useState(apartment ?? defaultApartment);
   // const [imageStrings, setImageStrings] = useState(
@@ -77,20 +79,20 @@ function GeneralFormModal({
     >
 
       <Modal.Body>
-        {isEdit ? 'Edit the Apartment' : 'Create a new Apartment'}
+        {isEdit ? `${t('formAdd.edit')} ${t('formAdd.title')}` : `${t('formAdd.create')} ${t('formAdd.title')}`}
         <form className="mt-3 general-form" onSubmit={handleSubmit}>
           <label>
-            Name of apartment
+            {t('formAdd.lname')}
           </label>
           <input
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Apartment Name"
+            placeholder={t('formAdd.name')}
           />
           <label>
-            Description
+            {t('formAdd.ldescription')}
           </label>
           <textarea
             name="description"
@@ -98,10 +100,10 @@ function GeneralFormModal({
             onChange={handleChange}
             cols={4}
             rows={4}
-            placeholder="Description"
+            placeholder={t('formAdd.description')}
           />
           <label>
-            Price per night
+            {t('formAdd.lprice')}
           </label>
           <input
             type="number"
@@ -111,7 +113,7 @@ function GeneralFormModal({
             placeholder="Price"
           />
           <label>
-            Max guests
+            {t('formAdd.lguests')}
           </label>
           <input
             type="number"
@@ -120,13 +122,13 @@ function GeneralFormModal({
             onChange={handleChange}
             placeholder="Number of Guests"
           />
-          <label> Location</label>
+          <label>{t('formAdd.llocation')}</label>
           <input
             type="text"
             name="location"
             value={form.location}
             onChange={handleChange}
-            placeholder="Location"
+            placeholder={t('formAdd.location')}
           />
           {/* <label>Images</label>
           <input
@@ -136,13 +138,13 @@ function GeneralFormModal({
             onChange={handleImages}
             placeholder="Image"
           /> */}
-          <label> Host name</label>
+          <label>{t('formAdd.hostName')}</label>
           <input
             type="text"
             name="name"
             value={form.host.name}
             onChange={handleHost}
-            placeholder="Host Name"
+            placeholder={t('formAdd.hostName')}
           />
           {/* <input
             type="text"
@@ -162,10 +164,10 @@ function GeneralFormModal({
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleSubmit}>
-          {isEdit ? 'Update' : 'Create'}
+          {isEdit ? `${t('formAdd.edit')}` : `${t('formAdd.create')}`}
         </Button>
         <Button onClick={onClose}>
-          Close
+          {t('formAdd.close')}
         </Button>
       </Modal.Footer>
     </Modal>
