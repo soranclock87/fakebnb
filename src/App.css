@@ -610,3 +610,27 @@ a.custom-nav-text.active-text.nav-link {
   background: #ff395c !important;
   border: 0;
 }
+
+.content-page-error {
+  display: flex;
+  justify-content: center;
+}
+
+.content-page-error h1{
+  font-size: 150px;
+}
+.block-text{
+  width: 40%;
+}
+.content-page-error p{
+  font-size: 40px;
+}
+
+.error-server {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  height: 100vh;
+}

@@ -88,6 +88,7 @@
             "message": "¿Estás seguro de que quieres eliminar el apartamento?",
             "close": "Cerrar",
             "confirm": "Eliminar"
-        }
+        },
+        "server": "Estamos teniendo problemas con nuestro servidor"
             
     }

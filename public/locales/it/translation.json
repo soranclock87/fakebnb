@@ -88,6 +88,7 @@
             "message": "Vuoi davvero eliminare l'appartamento?",
             "close": "Chiudi",
             "confirm": "Conferma"
-        }
+        },
+        "server": "stiamo riscontrando problemi con il nostro server"
             
     }
