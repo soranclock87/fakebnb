@@ -81,6 +81,12 @@
             "privacy":"Privacy",
             "lang":"English(US)",
             "support":"Suport & resources"
+        },
+        "modal": {
+            "title":"Delete Apartment",
+            "message": "Are you sure you want to delete the apartment?",
+            "close": "Close",
+            "confirm": "Delete"
         }
             
     }

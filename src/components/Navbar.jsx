@@ -51,15 +51,18 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
       <Navbar expand="lg" className="px-5 pt-3 justify-content-between" fixed="top">
 
         <Navbar.Brand href="#home" className="brand-color">
-          <img
-            alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top "
-          />
-          {' '}
-          fakebnb
+          <Nav.Link href="/">
+            <img
+              alt=""
+              src={Logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top "
+            />
+            {' '}
+            fakebnb
+
+          </Nav.Link>
         </Navbar.Brand>
         <Nav>
           <Nav.Link href="/" className={`custom-nav-text ${url === '/' ? ' active-text' : ''}`}>
@@ -143,7 +146,7 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
                 />
               </div>
 
-              <Button type="submit"><IoMdSearch /></Button>
+              <Button type="submit" className="btn-search"><IoMdSearch /></Button>
 
             </Form.Group>
           </>

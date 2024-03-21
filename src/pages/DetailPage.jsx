@@ -281,15 +281,15 @@ function DetailPage({ apartments, setApartments, onSubmit }) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{t('modal.title')}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>{t('modal.message')}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button className="btn-form" onClick={() => handleDelete(id)}>
+            {t('modal.confirm')}
           </Button>
-          <Button variant="primary" onClick={() => handleDelete(id)}>
-            Confirm
+          <Button className="btn-form" onClick={handleClose}>
+            {t('modal.close')}
           </Button>
         </Modal.Footer>
       </Modal>

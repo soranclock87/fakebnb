@@ -82,6 +82,12 @@
             "privacy":"Privacidad",
             "lang":"Español(ES)",
             "support":"Soporte & Recursos"
+        },
+        "modal": {
+            "title":"Eliminar apartamento",
+            "message": "¿Estás seguro de que quieres eliminar el apartamento?",
+            "close": "Cerrar",
+            "confirm": "Eliminar"
         }
             
     }

@@ -163,10 +163,10 @@ function GeneralFormModal({
         </form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleSubmit}>
+        <Button onClick={handleSubmit} className="btn-form">
           {isEdit ? `${t('formAdd.edit')}` : `${t('formAdd.create')}`}
         </Button>
-        <Button onClick={onClose}>
+        <Button onClick={onClose} className="btn-form">
           {t('formAdd.close')}
         </Button>
       </Modal.Footer>
