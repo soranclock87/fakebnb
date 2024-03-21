@@ -22,7 +22,6 @@ function App() {
 
   const editApartment = async (apartment) => {
     const updateApartment = { id: apartment.id, ...apartment };
-    console.log('estoy modificando este', updateApartment);
     try {
       await fetch(`${API_URL}/${apartment.id}`, {
         method: 'PUT',
@@ -62,7 +61,7 @@ function App() {
     }
   };
 
-  const getOneProduct = async () => {
+  const getApartments = async () => {
     setLoading(true);
     console.log(API_URL);
     const res = await fetch(`${API_URL}`);
@@ -72,7 +71,7 @@ function App() {
   };
 
   useEffect(() => {
-    getOneProduct();
+    getApartments();
   }, []);
 
   return (

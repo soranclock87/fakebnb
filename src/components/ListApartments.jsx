@@ -16,7 +16,7 @@ function ListApartments({
       const newListApartment = apartments.filter((apartment) => apartment.location.toLowerCase().includes(searchInput.toLowerCase()));
       setFiltered(newListApartment);
     }
-  }, [searchInput]);
+  }, [searchInput, apartments]);
 
   // useEffect()
   return (
