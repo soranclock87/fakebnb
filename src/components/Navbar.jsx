@@ -18,33 +18,16 @@ const locales = {
   it: { title: 'Italian' },
 };
 
-function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
+function NavbarApp({ onSubmit, setSearchInput }) {
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [modalShow, setModalShow] = useState(false);
-  const [searchInput, setSearchInput] = useState('');
   const handleModalClose = () => setModalShow(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
-
-  const [validated, setValidated] = useState();
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    const filteredApartments = apartments.filter((apartment) => apartment
-      .location.toLowerCase().includes(searchInput.toLowerCase()));
-
-    console.log(filteredApartments);
-    onSearchSubmit(filteredApartments);
-    setValidated(true);
-  };
 
   return (
     <div className="navbar-content">
@@ -108,7 +91,7 @@ function NavbarApp({ onSubmit, onSearchSubmit, apartments }) {
 
       </Navbar>
       <Nav className="px-5  justify-content-center text-center pt-55">
-        <Form noValidate className="mb-3 form-filters" validated={validated} onSubmit={handleSubmit}>
+        <Form noValidate className="mb-3 form-filters">
           <>
             <Form.Group className="ps-4 input-nofilter" controlId="validationCustom01">
               <Form.Label>{t('filter.where')}</Form.Label>
