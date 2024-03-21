@@ -10,7 +10,7 @@ function ListApartments({
   const [filtered, setFiltered] = useState(apartments);
 
   useEffect(() => {
-    if (searchInput === '' || searchInput === undefined) {
+    if (searchInput === '' || searchInput === undefined || searchInput === null) {
       setFiltered(apartments);
     } else {
       const newListApartment = apartments.filter((apartment) => apartment.location.toLowerCase().includes(searchInput.toLowerCase()));
